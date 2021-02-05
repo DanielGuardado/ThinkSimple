@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+
 import { Button } from "semantic-ui-react";
 
 import { checkHighRisk } from "../../helpers/risk";
-import TripSurvey from "../TripSurvey/TripSurvey";
-import TravelerData from "../TravelerData/TravelerData";
-import TripSurveyQuestions from "../TripSurveyQuestions/TripSurveyQuestions";
+import { TravelerData } from "../TravelerData/";
+import { TripSurvey } from "../TripSurvey/";
+import { TripSurveyQuestions } from "../TripSurveyQuestions/";
 
 export default function HealthFormView({ setFormStatus, setRisk }) {
   const [tripSurveyStatus, setTripSurveyStatus] = useState(false);
@@ -23,8 +24,9 @@ export default function HealthFormView({ setFormStatus, setRisk }) {
   return (
     <>
       <TripSurvey
-        setTripSurveyStatus={setTripSurveyStatus}
-        tripSurveyStatus={tripSurveyStatus}
+        {...{ setTripSurveyStatus, tripSurveyStatus }}
+        // setTripSurveyStatus={setTripSurveyStatus}
+        // tripSurveyStatus={tripSurveyStatus}
       />
       <TravelerData
         setTravelerDataStatus={setTravelerDataStatus}
