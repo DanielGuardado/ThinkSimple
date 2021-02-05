@@ -1,9 +1,10 @@
 import React from "react";
+
 import { Header, Button, Divider } from "semantic-ui-react";
 
-import { tripSurveyContent, submitionContent } from "../../helpers/content";
-import SVGIcon from "../SvgIcon/SvgIcon";
 import "./CompletionView.css";
+import { tripSurveyContent, submitionContent } from "../../helpers/content";
+import { SVGIcon } from "../SvgIcon";
 
 export default function CompletionView({ risk, setFormStatus }) {
   return (
