@@ -11,9 +11,9 @@ export default function App() {
   return (
     <div className="App">
       {!formStatus ? (
-        <HealthFormView setFormStatus={setFormStatus} setRisk={setRisk} />
+        <HealthFormView {...{ setFormStatus, setRisk }} />
       ) : (
-        <CompletionView risk={risk} setFormStatus={setFormStatus} />
+        <CompletionView {...{ risk, setFormStatus }} />
       )}
     </div>
   );

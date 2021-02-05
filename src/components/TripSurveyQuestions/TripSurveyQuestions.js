@@ -8,12 +8,11 @@ export default function TripSurveyQuestions({ setFormData, formData }) {
     <>
       {Object.keys(tripSurveyQuestions).map((question, idx) => (
         <QuestionItem
-          radio={tripSurveyQuestions[question].radio}
+          {...{ formData, setFormData }}
           checkbox={tripSurveyQuestions[question].checkbox}
-          formData={formData}
-          setFormData={setFormData}
-          question={tripSurveyQuestions[question]}
           key={idx}
+          question={tripSurveyQuestions[question]}
+          radio={tripSurveyQuestions[question].radio}
         />
       ))}
     </>

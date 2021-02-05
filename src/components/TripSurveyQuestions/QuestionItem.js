@@ -70,18 +70,13 @@ export default class RadioExampleRadioGroup extends Component {
               <Form.Field>
                 {Object.keys(symptomList).map((symptom, idx) => (
                   <TripSurveyListItem
-                    // formData={formData}
-                    // key={idx}
-                    // question={question}
-                    // setFormData={setFormData}
-                    // symptom={symptom}
-                    // symptomList={symptomList}
+                    key={idx}
                     {...{
-                      symptomList,
-                      symptom,
-                      setFormData,
-                      question,
                       formData,
+                      question,
+                      setFormData,
+                      symptom,
+                      symptomList,
                     }}
                   />
                 ))}
