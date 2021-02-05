@@ -41,6 +41,7 @@ export default class TravelerData extends Component {
           }
           label={tripSurveyContent.verifyTravelerInformatiionLabel}
         />
+        <Divider />
       </>
     );
   }

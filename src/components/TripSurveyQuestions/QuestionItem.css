@@ -1,0 +1,20 @@
+.required {
+  font-weight: bold;
+}
+.required:after {
+  color: #e32;
+  content: " *";
+  display: inline;
+}
+
+h3.ui.header {
+  margin: calc(2rem - 0.142857em) 0 1rem;
+}
+
+.ui.header:first-child {
+  margin-top: 0.857143em;
+}
+
+.ui.form {
+  margin-bottom: 1rem;
+}

@@ -43,6 +43,7 @@ export default function HealthFormView({ setFormStatus, setRisk }) {
         content="submit"
         style={{ width: "100%" }}
         onClick={handleSubmit}
+        color={"green"}
       />
     </>
   );

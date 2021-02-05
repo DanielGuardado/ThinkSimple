@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Form, Radio, Header, Checkbox } from "semantic-ui-react";
 
+import "./QuestionItem.css";
 import { symptomList } from "../../helpers/content";
 import TripSurveyListItem from "./TripSurveyListItem";
 
@@ -38,7 +39,11 @@ export default class RadioExampleRadioGroup extends Component {
   render() {
     return (
       <>
-        <Header as="h3" content={this.props.question.label} />
+        <Header
+          as="h3"
+          className="required"
+          content={this.props.question.label}
+        />
         {this.props.radio ? (
           <Form>
             <Form.Field>

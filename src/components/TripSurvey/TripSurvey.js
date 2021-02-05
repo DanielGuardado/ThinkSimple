@@ -7,17 +7,26 @@ import "./TripSurvey.css";
 export default function tripSurvey({ setTripSurveyStatus, tripSurveyStatus }) {
   return (
     <>
-      <div className="margin-0 padding-0">
-        <Header as="h1" content={tripSurveyContent.title} />
-        <Header as="h1" content={tripSurveyContent.sub_title} />
-        {/* come back and map this */}
-        <p>{tripSurveyContent.info_parapgraphs[0]}</p>
-        <p>{tripSurveyContent.info_parapgraphs[1]}</p>
-        <Checkbox
-          onClick={() => setTripSurveyStatus(!tripSurveyStatus)}
-          label={tripSurveyContent.commitLabel}
-        />
-      </div>
+      <Header
+        className="header-margin"
+        as="h1"
+        content={tripSurveyContent.title}
+      />
+      <Header
+        className="header-margin"
+        as="h1"
+        content={tripSurveyContent.sub_title}
+      />
+      <Divider />
+      {/* come back and map this */}
+      <p>{tripSurveyContent.info_parapgraphs[0]}</p>
+      <Divider />
+      <p>{tripSurveyContent.info_parapgraphs[1]}</p>
+      <Checkbox
+        onClick={() => setTripSurveyStatus(!tripSurveyStatus)}
+        label={tripSurveyContent.commitLabel}
+      />
+      <Divider />
     </>
   );
 }
