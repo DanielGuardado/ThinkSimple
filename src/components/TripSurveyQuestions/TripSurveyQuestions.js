@@ -14,7 +14,12 @@ export default function TripSurveyQuestions({ setFormData, formData }) {
           setFormData={setFormData}
           question={tripSurveyQuestions.closeContact}
         />
-        <QuestionItem checkbox question={tripSurveyQuestions.symptoms} />
+        <QuestionItem
+          checkbox
+          formData={formData}
+          setFormData={setFormData}
+          question={tripSurveyQuestions.symptoms}
+        />
         <QuestionItem
           radio
           formData={formData}

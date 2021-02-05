@@ -7,14 +7,7 @@ export function checkHighRisk(surveyData = {}) {
     certifySigns,
     abideHealthMeasures,
   } = surveyData;
-
-  if (
-    closeContact ||
-    // symptoms.length !== 0 ||
-    !symptoms.none ||
-    !certifySigns ||
-    !abideHealthMeasures
-  )
+  if (closeContact || !symptoms.none || !certifySigns || !abideHealthMeasures)
     return true;
 
   return false;
