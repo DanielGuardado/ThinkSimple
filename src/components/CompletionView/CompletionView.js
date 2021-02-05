@@ -3,6 +3,7 @@ import React from "react";
 import { Header, Button, Divider } from "semantic-ui-react";
 
 import "./CompletionView.css";
+import buttons from "../../components/config/buttons";
 import colors from "../../components/config/colors";
 import { submitionContent, tripSurveyContent } from "../../helpers/content";
 import { SVGIcon } from "../SvgIcon";
@@ -17,10 +18,10 @@ export default function CompletionView({ risk, setFormStatus }) {
           <Divider />
           <p>{submitionContent.subtitleNoRisk}</p>
           <Button
-            onClick={() => setFormStatus(false)}
-            content={submitionContent.button}
-            style={{ width: "50%" }}
             color={colors.noRiskButton}
+            content={submitionContent.button}
+            onClick={() => setFormStatus(false)}
+            style={{ width: buttons.completionButton }}
           />
         </>
       ) : (
@@ -30,10 +31,10 @@ export default function CompletionView({ risk, setFormStatus }) {
           <Divider />
           <p>{submitionContent.subtitleRisk}</p>
           <Button
-            onClick={() => setFormStatus(false)}
-            content={submitionContent.button}
-            style={{ width: "50%" }}
             color={colors.riskButton}
+            content={submitionContent.button}
+            onClick={() => setFormStatus(false)}
+            style={{ width: buttons.completionButton }}
           />
         </>
       )}

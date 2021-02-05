@@ -22,6 +22,7 @@ export default class RadioExampleRadioGroup extends Component {
     const { label, fieldKey, required } = this.props.question;
     const { formData, setFormData, checkbox, question, radio } = this.props;
     const { value } = this.state;
+
     return (
       <>
         <Header
@@ -33,32 +34,32 @@ export default class RadioExampleRadioGroup extends Component {
           <Form>
             <Form.Field>
               <Radio
+                checked={value === "Yes"}
+                label="Yes"
+                name="radioGroup"
+                onChange={this.handleChange}
                 onClick={() =>
                   setFormData({
                     ...formData,
                     [fieldKey]: true,
                   })
                 }
-                label="Yes"
-                name="radioGroup"
                 value="Yes"
-                checked={value === "Yes"}
-                onChange={this.handleChange}
               />
             </Form.Field>
             <Form.Field>
               <Radio
+                checked={value === "No"}
+                label="No"
+                name="radioGroup"
+                onChange={this.handleChange}
                 onClick={() =>
                   setFormData({
                     ...formData,
                     [fieldKey]: false,
                   })
                 }
-                label="No"
-                name="radioGroup"
                 value="No"
-                checked={value === "No"}
-                onChange={this.handleChange}
               />
             </Form.Field>
           </Form>
@@ -69,12 +70,19 @@ export default class RadioExampleRadioGroup extends Component {
               <Form.Field>
                 {Object.keys(symptomList).map((symptom, idx) => (
                   <TripSurveyListItem
-                    formData={formData}
-                    key={idx}
-                    question={question}
-                    setFormData={setFormData}
-                    symptom={symptom}
-                    symptomList={symptomList}
+                    // formData={formData}
+                    // key={idx}
+                    // question={question}
+                    // setFormData={setFormData}
+                    // symptom={symptom}
+                    // symptomList={symptomList}
+                    {...{
+                      symptomList,
+                      symptom,
+                      setFormData,
+                      question,
+                      formData,
+                    }}
                   />
                 ))}
               </Form.Field>

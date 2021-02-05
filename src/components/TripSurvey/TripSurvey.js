@@ -16,8 +16,8 @@ export default function tripSurvey({ setTripSurveyStatus, tripSurveyStatus }) {
       <Divider />
       <p>{info_parapgraphs[1]}</p>
       <Checkbox
-        onClick={() => setTripSurveyStatus(!tripSurveyStatus)}
         label={commitLabel}
+        onClick={() => setTripSurveyStatus(!tripSurveyStatus)}
       />
       <Divider />
     </>
