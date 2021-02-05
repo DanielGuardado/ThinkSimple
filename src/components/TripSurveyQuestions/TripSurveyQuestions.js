@@ -6,7 +6,6 @@ import { tripSurveyQuestions } from "../../helpers/content";
 export default function TripSurveyQuestions({ setFormData, formData }) {
   return (
     <>
-      {/* could loop through the keys */}
       {Object.keys(tripSurveyQuestions).map((question, idx) => (
         <QuestionItem
           radio={tripSurveyQuestions[question].radio}
@@ -17,30 +16,6 @@ export default function TripSurveyQuestions({ setFormData, formData }) {
           key={idx}
         />
       ))}
-      {/* <QuestionItem
-        radio
-        formData={formData}
-        setFormData={setFormData}
-        question={tripSurveyQuestions.closeContact}
-      />
-      <QuestionItem
-        checkbox
-        formData={formData}
-        setFormData={setFormData}
-        question={tripSurveyQuestions.symptoms}
-      />
-      <QuestionItem
-        radio
-        formData={formData}
-        setFormData={setFormData}
-        question={tripSurveyQuestions.certifySigns}
-      />
-      <QuestionItem
-        radio
-        formData={formData}
-        setFormData={setFormData}
-        question={tripSurveyQuestions.abideHealthMeasures}
-      /> */}
     </>
   );
 }
