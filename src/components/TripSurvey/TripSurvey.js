@@ -9,8 +9,8 @@ export default function tripSurvey({ setTripSurveyStatus, tripSurveyStatus }) {
   const { commitLabel, info_parapgraphs, sub_title, title } = tripSurveyContent;
   return (
     <>
-      <Header className="header-margin" as="h1" content={title} />
-      <Header className="header-margin" as="h1" content={sub_title} />
+      <Header className="center" as="h1" content={title} />
+      <Header className="center" as="h1" content={sub_title} />
       <Divider />
       <p>{info_parapgraphs[0]}</p>
       <Divider />
