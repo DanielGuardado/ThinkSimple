@@ -9,11 +9,7 @@ export default function App() {
   const [formStatus, setFormStatus] = useState(false);
   return (
     <div className="App">
-      {/* NOTE: Comment out DocumentationView before submission  */}
-      {/* <DocumentationView /> */}
       {!formStatus ? <HealthFormView /> : <CompletionView />}
-      {/* <HealthFormView />
-      {<CompletionView />} */}
     </div>
   );
 }

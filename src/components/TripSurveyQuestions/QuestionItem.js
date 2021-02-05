@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Form, Radio, Header, Checkbox } from "semantic-ui-react";
 
 import { symptomList } from "../../helpers/content";
+import TripSurveyListItem from "./TripSurveyListItem";
 
 export default class RadioExampleRadioGroup extends Component {
   constructor(props) {
@@ -24,11 +25,6 @@ export default class RadioExampleRadioGroup extends Component {
       this.props.setFormData({
         ...this.props.formData,
         [this.props.question.fieldKey]: newState,
-        // this.props.setFormData({
-        //   ...this.props.formData,
-        //   [this.props.question.fieldKey]: {
-        //     [symptom]: symptomList[symptom],
-        //   },
       });
       this.setState({ checked: true });
     } else {
@@ -37,20 +33,7 @@ export default class RadioExampleRadioGroup extends Component {
       this.props.setFormData(newState);
       this.setState({ checked: false });
     }
-    // debugger;
-    // const newState = this.props.formData.symptoms.filter(
-    //   (item) => item.key !== key
-    // );
-    // this.props.setFormData(newState);
   }
-
-  // handleFieldKey() {
-  //   let fieldKey = this.props.question.fieldKey
-  //   this.props.setFormData({
-  //     ...this.props.formData,
-  //     [fieldKey]: true,
-  //   });
-  // }
 
   render() {
     return (
@@ -95,27 +78,13 @@ export default class RadioExampleRadioGroup extends Component {
             <Form>
               <Form.Field>
                 {Object.keys(symptomList).map((symptom, idx) => (
-                  <Checkbox
-                    // onClick={() =>
-                    //   this.props.setFormData({
-                    //     ...this.props.formData,
-                    //     [this.props.question.fieldKey]: {
-                    //       [symptom]: symptomList[symptom],
-                    //     },
-                    //   })
-                    // }
-                    onChange={() => this.handleCheckbox(symptom, symptomList)}
-                    // onChange={this.handleRemove}
-                    // onChange={() =>
-                    //   this.props.setFormData({
-                    //     ...this.props.formData,
-                    //     [this.props.question.fieldKey]: {
-                    //       [symptom]: symptomList[symptom],
-                    //     },
-                    //   })
-                    // }
+                  <TripSurveyListItem
+                    symptomList={symptomList}
+                    symptom={symptom}
                     key={idx}
-                    label={symptomList[symptom].label}
+                    setFormData={this.props.setFormData}
+                    formData={this.props.formData}
+                    question={this.props.question}
                   />
                 ))}
               </Form.Field>
