@@ -11,7 +11,9 @@
 //   );
 // }
 import React, { Component } from "react";
-import { Form, Radio, Header } from "semantic-ui-react";
+import { Form, Radio, Header, Checkbox } from "semantic-ui-react";
+
+import { symptomList } from "../../helpers/content";
 
 export default class RadioExampleRadioGroup extends Component {
   constructor(props) {
@@ -22,34 +24,66 @@ export default class RadioExampleRadioGroup extends Component {
   }
 
   handleChange(e) {
-    debugger;
     this.setState({ value: e.target.innerText });
   }
+
+  // handleFieldKey() {
+  //   let fieldKey = this.props.question.fieldKey
+  //   this.props.setFormData({
+  //     ...this.props.formData,
+  //     [fieldKey]: true,
+  //   });
+  // }
 
   render() {
     return (
       <>
         <Header as="h3" content={this.props.question.label}></Header>
-        <Form>
-          <Form.Field>
-            <Radio
-              label="Yes"
-              name="radioGroup"
-              value="Yes"
-              checked={this.state.value === "Yes"}
-              onChange={this.handleChange}
-            />
-          </Form.Field>
-          <Form.Field>
-            <Radio
-              label="No"
-              name="radioGroup"
-              value="No"
-              checked={this.state.value === "No"}
-              onChange={this.handleChange}
-            />
-          </Form.Field>
-        </Form>
+        {this.props.radio ? (
+          <Form>
+            <Form.Field>
+              <Radio
+                onClick={() =>
+                  this.props.setFormData({
+                    ...this.props.formData,
+                    [this.props.question.fieldKey]: true,
+                  })
+                }
+                label="Yes"
+                name="radioGroup"
+                value="Yes"
+                checked={this.state.value === "Yes"}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+            <Form.Field>
+              <Radio
+                onClick={() =>
+                  this.props.setFormData({
+                    ...this.props.formData,
+                    [this.props.question.fieldKey]: false,
+                  })
+                }
+                label="No"
+                name="radioGroup"
+                value="No"
+                checked={this.state.value === "No"}
+                onChange={this.handleChange}
+              />
+            </Form.Field>
+          </Form>
+        ) : null}
+        {this.props.checkbox ? (
+          <>
+            <Form>
+              <Form.Field>
+                {Object.keys(symptomList).map((symptom, idx) => (
+                  <Checkbox key={idx} label={symptomList[symptom].label} />
+                ))}
+              </Form.Field>
+            </Form>
+          </>
+        ) : null}
       </>
     );
   }

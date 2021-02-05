@@ -35,7 +35,12 @@ export default class TravelerData extends Component {
     return (
       <>
         {this.travelerInfo()}
-        <Checkbox label={tripSurveyContent.verifyTravelerInformatiionLabel} />
+        <Checkbox
+          onClick={() =>
+            this.props.setTravelerDataStatus(!this.props.travelerDataStatus)
+          }
+          label={tripSurveyContent.verifyTravelerInformatiionLabel}
+        />
       </>
     );
   }
