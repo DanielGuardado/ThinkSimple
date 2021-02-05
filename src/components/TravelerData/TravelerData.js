@@ -1,45 +1,48 @@
 import React, { Component } from "react";
-import { Checkbox, Image, Header, List, Divider } from "semantic-ui-react";
 
-import { tripSurveyContent } from "../../helpers/content";
+import { Checkbox, Header, Divider } from "semantic-ui-react";
+
 import { fetchTravelerData } from "../../helpers/data";
+import { tripSurveyContent } from "../../helpers/content";
 
 export default class TravelerData extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
+
   componentDidMount() {
     let traveler = fetchTravelerData();
     this.setState(traveler);
   }
 
   travelerInfo() {
+    const { firstName, middleName, lastName, accountID, tripID } = this.state;
     if (Object.keys(this.state).length !== 0) {
       return (
         <>
           <Header sub>Name</Header>
           <p>
-            {this.state.firstName} {this.state.middleName} {this.state.lastName}
+            {firstName} {middleName} {lastName}
           </p>
           <Header sub>Account ID</Header>
-          <p>{this.state.accountID}</p>
+          <p>{accountID}</p>
           <Header sub>Trip ID</Header>
-          <p>{this.state.tripID}</p>
+          <p>{tripID}</p>
         </>
       );
     }
   }
 
   render() {
+    const { travelerDataStatus, setTravelerDataStatus } = this.props;
+    const { verifyTravelerInformatiionLabel } = tripSurveyContent;
     return (
       <>
         {this.travelerInfo()}
         <Checkbox
-          onClick={() =>
-            this.props.setTravelerDataStatus(!this.props.travelerDataStatus)
-          }
-          label={tripSurveyContent.verifyTravelerInformatiionLabel}
+          onClick={() => setTravelerDataStatus(!travelerDataStatus)}
+          label={verifyTravelerInformatiionLabel}
         />
         <Divider />
       </>

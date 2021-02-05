@@ -16,24 +16,28 @@ export const tripSurveyQuestions = {
     label:
       "1. Within the past 24-hours, did you have close contact with anyone who has tested positive or has shown symptoms of COVID-19? (Close contact is defined as contact for more than 15 minutes and within less than 6 feet)",
     required: true,
+    radio: true,
   },
   symptoms: {
     fieldKey: "symptoms",
     label:
       "2. Within the past 24-hours have you experienced any of the following symptoms? Please select all that apply.",
     required: true,
+    checkbox: true,
   },
   certifySigns: {
     fieldKey: "certifySigns",
     label:
       "3. I certify that I do not currently have COVID-19 symptoms and, in the last 24 hours, have not had close contact with anyone showing signs of COVID-19.",
     required: true,
+    radio: true,
   },
   abideHealthMeasures: {
     fieldKey: "abideHealthMeasures",
     label:
       "4. I will continue to abide by The Bahamas' public health measures, including wearing a face mask, regularly washing and sanitizing hands, and following physical distancing protocols.",
     required: true,
+    radio: true,
   },
 };
 

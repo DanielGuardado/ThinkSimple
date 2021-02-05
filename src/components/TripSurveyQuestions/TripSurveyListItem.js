@@ -1,12 +1,13 @@
 import React, { useState } from "react";
+
 import { Checkbox } from "semantic-ui-react";
 
 export default function TripSurveyListItem({
-  symptom,
-  symptomList,
-  setFormData,
   formData,
   question,
+  setFormData,
+  symptom,
+  symptomList,
 }) {
   const [checked, setchecked] = useState(false);
 

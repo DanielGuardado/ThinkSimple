@@ -1,38 +1,46 @@
 import React from "react";
 
+import { QuestionItem } from "./index";
 import { tripSurveyQuestions } from "../../helpers/content";
-import QuestionItem from "./QuestionItem";
 
 export default function TripSurveyQuestions({ setFormData, formData }) {
   return (
     <>
-      <div className="margin-0 padding-0">
-        {/* could loop through the keys */}
+      {/* could loop through the keys */}
+      {Object.keys(tripSurveyQuestions).map((question, idx) => (
         <QuestionItem
-          radio
+          radio={tripSurveyQuestions[question].radio}
+          checkbox={tripSurveyQuestions[question].checkbox}
           formData={formData}
           setFormData={setFormData}
-          question={tripSurveyQuestions.closeContact}
+          question={tripSurveyQuestions[question]}
+          key={idx}
         />
-        <QuestionItem
-          checkbox
-          formData={formData}
-          setFormData={setFormData}
-          question={tripSurveyQuestions.symptoms}
-        />
-        <QuestionItem
-          radio
-          formData={formData}
-          setFormData={setFormData}
-          question={tripSurveyQuestions.certifySigns}
-        />
-        <QuestionItem
-          radio
-          formData={formData}
-          setFormData={setFormData}
-          question={tripSurveyQuestions.abideHealthMeasures}
-        />
-      </div>
+      ))}
+      {/* <QuestionItem
+        radio
+        formData={formData}
+        setFormData={setFormData}
+        question={tripSurveyQuestions.closeContact}
+      />
+      <QuestionItem
+        checkbox
+        formData={formData}
+        setFormData={setFormData}
+        question={tripSurveyQuestions.symptoms}
+      />
+      <QuestionItem
+        radio
+        formData={formData}
+        setFormData={setFormData}
+        question={tripSurveyQuestions.certifySigns}
+      />
+      <QuestionItem
+        radio
+        formData={formData}
+        setFormData={setFormData}
+        question={tripSurveyQuestions.abideHealthMeasures}
+      /> */}
     </>
   );
 }

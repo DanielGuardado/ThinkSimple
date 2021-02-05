@@ -1,30 +1,23 @@
 import React from "react";
-import { Checkbox, Image, Header, List, Divider } from "semantic-ui-react";
 
-import { tripSurveyContent } from "../../helpers/content";
+import { Checkbox, Header, Divider } from "semantic-ui-react";
+
 import "./TripSurvey.css";
+import { tripSurveyContent } from "../../helpers/content";
 
 export default function tripSurvey({ setTripSurveyStatus, tripSurveyStatus }) {
+  const { title, sub_title, info_parapgraphs, commitLabel } = tripSurveyContent;
   return (
     <>
-      <Header
-        className="header-margin"
-        as="h1"
-        content={tripSurveyContent.title}
-      />
-      <Header
-        className="header-margin"
-        as="h1"
-        content={tripSurveyContent.sub_title}
-      />
+      <Header className="header-margin" as="h1" content={title} />
+      <Header className="header-margin" as="h1" content={sub_title} />
       <Divider />
-      {/* come back and map this */}
-      <p>{tripSurveyContent.info_parapgraphs[0]}</p>
+      <p>{info_parapgraphs[0]}</p>
       <Divider />
-      <p>{tripSurveyContent.info_parapgraphs[1]}</p>
+      <p>{info_parapgraphs[1]}</p>
       <Checkbox
         onClick={() => setTripSurveyStatus(!tripSurveyStatus)}
-        label={tripSurveyContent.commitLabel}
+        label={commitLabel}
       />
       <Divider />
     </>

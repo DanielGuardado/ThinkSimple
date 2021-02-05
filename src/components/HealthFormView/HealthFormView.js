@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { Button } from "semantic-ui-react";
 
+import colors from "../../components/config/colors";
 import { checkHighRisk } from "../../helpers/risk";
 import { TravelerData } from "../TravelerData/";
 import { TripSurvey } from "../TripSurvey/";
@@ -23,16 +24,9 @@ export default function HealthFormView({ setFormStatus, setRisk }) {
 
   return (
     <>
-      <TripSurvey
-        {...{ setTripSurveyStatus, tripSurveyStatus }}
-        // setTripSurveyStatus={setTripSurveyStatus}
-        // tripSurveyStatus={tripSurveyStatus}
-      />
-      <TravelerData
-        setTravelerDataStatus={setTravelerDataStatus}
-        travelerDataStatus={travelerDataStatus}
-      />
-      <TripSurveyQuestions formData={formData} setFormData={setFormData} />
+      <TripSurvey {...{ setTripSurveyStatus, tripSurveyStatus }} />
+      <TravelerData {...{ setTravelerDataStatus, travelerDataStatus }} />
+      <TripSurveyQuestions {...{ formData, setFormData }} />
       <Button
         disabled={
           !tripSurveyStatus ||
@@ -45,7 +39,7 @@ export default function HealthFormView({ setFormStatus, setRisk }) {
         content="submit"
         style={{ width: "100%" }}
         onClick={handleSubmit}
-        color={"green"}
+        color={colors.submitButton}
       />
     </>
   );
