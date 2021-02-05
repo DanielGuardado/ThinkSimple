@@ -11,7 +11,6 @@ export default function TripSurveyListItem({
   const [checked, setchecked] = useState(false);
 
   const handleCheckbox = (symptom, symptomList) => {
-    debugger;
     if (checked === false) {
       let newState = Object.assign(formData.symptoms, {
         [symptom]: symptomList[symptom],

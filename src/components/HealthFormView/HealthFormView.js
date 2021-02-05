@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Button } from "semantic-ui-react";
 
+import { checkHighRisk } from "../../helpers/risk";
 import TripSurvey from "../TripSurvey/TripSurvey";
 import TravelerData from "../TravelerData/TravelerData";
 import TripSurveyQuestions from "../TripSurveyQuestions/TripSurveyQuestions";
-import { checkHighRisk } from "../../helpers/risk";
 
-export default function HealthFormView() {
+export default function HealthFormView({ setFormStatus, setRisk }) {
   const [tripSurveyStatus, setTripSurveyStatus] = useState(false);
   const [travelerDataStatus, setTravelerDataStatus] = useState(false);
   const [formData, setFormData] = useState({
@@ -16,11 +16,12 @@ export default function HealthFormView() {
     abideHealthMeasures: null,
   });
 
+  const handleSubmit = () => {
+    setFormStatus(true), setRisk(checkHighRisk(formData));
+  };
+
   return (
     <>
-      <p>{checkHighRisk(formData).toString()}</p>
-      <p>{tripSurveyStatus.toString()}</p>
-      <p>{travelerDataStatus.toString()}</p>
       <TripSurvey
         setTripSurveyStatus={setTripSurveyStatus}
         tripSurveyStatus={tripSurveyStatus}
@@ -31,9 +32,17 @@ export default function HealthFormView() {
       />
       <TripSurveyQuestions formData={formData} setFormData={setFormData} />
       <Button
-        disabled={!tripSurveyStatus || !travelerDataStatus}
+        disabled={
+          !tripSurveyStatus ||
+          !travelerDataStatus ||
+          formData.closeContact === null ||
+          formData.certifySigns === null ||
+          formData.abideHealthMeasures === null ||
+          Object.keys(formData.symptoms).length === 0
+        }
         content="submit"
         style={{ width: "100%" }}
+        onClick={handleSubmit}
       />
     </>
   );

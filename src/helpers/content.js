@@ -125,7 +125,9 @@ export const documentationContent = {
 };
 
 export const submitionContent = {
-  subtitle:
+  subtitleNoRisk:
     "Thank you for completing your Daily Health Survey! Plase remember to complete each day for the length of your stay or a maximum of 14-Days.",
+  subtitleRisk:
+    "Please inform the health center and quarantine! After analyzing your screening results, you are at high risk of contaminating others.",
   button: "Click to go back home",
 };
