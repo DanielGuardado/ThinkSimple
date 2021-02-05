@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Form, Radio, Header } from "semantic-ui-react";
+import { Form, Header, Radio } from "semantic-ui-react";
 
 import "./QuestionItem.css";
 import { symptomList } from "../../helpers/content";
@@ -19,8 +19,8 @@ export default class RadioExampleRadioGroup extends Component {
   }
 
   render() {
-    const { label, fieldKey, required } = this.props.question;
-    const { formData, setFormData, checkbox, question, radio } = this.props;
+    const { fieldKey, label, required } = this.props.question;
+    const { checkbox, formData, question, radio, setFormData } = this.props;
     const { value } = this.state;
 
     return (

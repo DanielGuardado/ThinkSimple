@@ -10,10 +10,10 @@ import { TripSurveyQuestions } from "../TripSurveyQuestions/";
 
 export default function HealthFormView({ setFormStatus, setRisk }) {
   const [formData, setFormData] = useState({
+    abideHealthMeasures: null,
+    certifySigns: null,
     closeContact: null,
     symptoms: {},
-    certifySigns: null,
-    abideHealthMeasures: null,
   });
   const [travelerDataStatus, setTravelerDataStatus] = useState(false);
   const [tripSurveyStatus, setTripSurveyStatus] = useState(false);

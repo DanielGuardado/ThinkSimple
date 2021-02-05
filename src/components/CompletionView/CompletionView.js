@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Header, Button, Divider } from "semantic-ui-react";
+import { Button, Divider, Header } from "semantic-ui-react";
 
 import "./CompletionView.css";
 import buttons from "../../components/config/buttons";

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { Checkbox, Header, Divider } from "semantic-ui-react";
+import { Checkbox, Divider, Header } from "semantic-ui-react";
 
 import { fetchTravelerData } from "../../helpers/data";
 import { tripSurveyContent } from "../../helpers/content";
@@ -17,7 +17,7 @@ export default class TravelerData extends Component {
   }
 
   travelerInfo() {
-    const { firstName, middleName, lastName, accountID, tripID } = this.state;
+    const { accountID, firstName, lastName, middleName, tripID } = this.state;
     if (Object.keys(this.state).length !== 0) {
       return (
         <>
@@ -35,7 +35,7 @@ export default class TravelerData extends Component {
   }
 
   render() {
-    const { travelerDataStatus, setTravelerDataStatus } = this.props;
+    const { setTravelerDataStatus, travelerDataStatus } = this.props;
     const { verifyTravelerInformatiionLabel } = tripSurveyContent;
     return (
       <>

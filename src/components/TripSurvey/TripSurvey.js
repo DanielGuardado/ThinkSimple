@@ -1,12 +1,12 @@
 import React from "react";
 
-import { Checkbox, Header, Divider } from "semantic-ui-react";
+import { Checkbox, Divider, Header } from "semantic-ui-react";
 
 import "./TripSurvey.css";
 import { tripSurveyContent } from "../../helpers/content";
 
 export default function tripSurvey({ setTripSurveyStatus, tripSurveyStatus }) {
-  const { title, sub_title, info_parapgraphs, commitLabel } = tripSurveyContent;
+  const { commitLabel, info_parapgraphs, sub_title, title } = tripSurveyContent;
   return (
     <>
       <Header className="header-margin" as="h1" content={title} />
